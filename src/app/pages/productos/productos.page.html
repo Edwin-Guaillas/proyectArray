@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" mode="md">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>PRODUCTOS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list-header>
+    <ion-label>
+      <p>PRODUCTOS DISPONIBLES :</p>
+    </ion-label>
+  </ion-list-header>
+
+  <ion-card *ngFor="let pro of producto; let indice=index">
+    <!--<ion-img [src]="pro.imagen"></ion-img>-->
+    <ion-card-header>
+      <ion-card-title>{{pro.nombre}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      $ {{pro.precio}}
+    </ion-card-content>
+    <ion-button (click)="eliminar(indice)" color="danger">
+      <ion-icon slot="start" name="trash"></ion-icon> Eliminar
+    </ion-button>
+    <ion-button (click)="abrirModal(pro)" color="secondary">
+      <ion-icon slot="start" name="create-sharp"></ion-icon> Editar
+    </ion-button>
+    <ion-button (click)="abrirModal(pro)" COLOR="warning">
+      <ion-icon slot="start" name="eye-off-outline"></ion-icon> Dar de baja
+    </ion-button>
+  </ion-card>
+
+  <!-------------------------------------->
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="abrirModal(nuevousuario)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
